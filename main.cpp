@@ -6,13 +6,14 @@
 int main()
 {
 
-	Array<int> test(3);
+	Array<int> test{3, 5, 6, 8};
 
-	test[0] = 5;
-	test[1] = -5;
-	test[2] = 10;
+	std::cout << test << std::endl;
 
 	test.add(5);
+	test[0] = 11;
+
+	std::cout << test << std::endl;
 
 	test.setSize(2);
 

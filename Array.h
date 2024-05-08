@@ -11,6 +11,7 @@ private:
 public:
 	Array() : elements(nullptr), size(0) {};
 	Array(int pSize) : elements(nullptr), size(pSize) { setSize(pSize); };
+	Array(const std::initializer_list<T>& list);
 	~Array();
 
 	void setSize(int size, int grow = 1);
@@ -34,6 +35,13 @@ public:
 		return out;
 	}
 };
+
+template<typename T>
+inline Array<T>::Array(const std::initializer_list<T>& list) : Array(list.size())
+{
+	for (int i = 0; i < list.size(); i++)
+		elements[i] = *(list.begin() + i);
+}
 
 template<typename T>
 inline Array<T>::~Array()
